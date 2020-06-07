@@ -25,8 +25,15 @@ public class AppUtils {
         }
     }
 
-    private static void Eliminar() {
+    private static void Eliminar() throws SQLException {
         System.out.println("Opcion Eliminar");
+        ArrayList<String> parametros = new ArrayList<>(pedirValoresQuery("Eliminar"));
+        if (updateQueriesExecution("DELETE FROM alumnos WHERE id=?", parametros)){
+            System.out.println("Datos eliminados correctamente");
+            Listar();
+        }else{
+            System.err.println("Error al intentar eliminar datos");
+        }
     }
 
     private static void Actualizar() {
