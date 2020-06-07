@@ -25,14 +25,9 @@ public class Menus {
             System.out.println("                    4.- Eliminar                      ");
             System.out.println("                    5.- Salir                         ");
             do {//en caso de introducir un valor no esperado continuo el ciclo hasta recibir una opcion valida
-                try {
+
                     respuesta = scanner.nextLine();
-                    Integer.parseInt(respuesta);
-                    esNumero =true;//si llego aqui es por que si es numero entero y guardo un true
-                }catch(NumberFormatException e){
-                    System.out.println("Opcion invalida, porfavor introduce una opcion valida");
-                    esNumero = false;// si llego aqui no es un numero entero y guardo un false
-                }
+                   esNumero = AppUtils.esNumero(respuesta);
             }while(!esNumero);// valido que la opcion introducida sea un numero valido
             AppUtils.opcionElegida(respuesta);
         } while (!respuesta.equals("5"));

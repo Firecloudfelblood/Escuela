@@ -8,7 +8,7 @@ public class Main {
         try {
             menu.menuPrincipal();
         }catch (SQLException e){
-            System.out.println("Base de datos no disponible por el momento por vafor intenta mas tarde");
+            System.err.println("Base de datos no disponible por el momento por vafor intenta mas tarde");
         }
         System.out.println(" Gracias por usar mi aplicacion! :) ");
 
