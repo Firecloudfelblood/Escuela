@@ -1,6 +1,7 @@
 package com.erivalaxl;
 
 import com.erivalaxl.utils.AppUtils;
+import com.erivalaxl.utils.MotorInsertar;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -27,7 +28,7 @@ public class Menus {
             do {//en caso de introducir un valor no esperado continuo el ciclo hasta recibir una opcion valida
 
                     respuesta = scanner.nextLine();
-                   esNumero = AppUtils.esNumero(respuesta);
+                   esNumero = MotorInsertar.esNumero(respuesta);
             }while(!esNumero);// valido que la opcion introducida sea un numero valido
             AppUtils.opcionElegida(respuesta);
         } while (!respuesta.equals("5"));
