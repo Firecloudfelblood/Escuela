@@ -34,12 +34,14 @@ public class AppUtils {
     }
 
     public static ArrayList<String>  pedirValoresQuery(String operacion, String[] campos){
+        int i = 0;
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> parametros = new ArrayList<>();
         System.out.println("Dame los campos necesarios para poder realizar la operacion " + operacion);
-        for (int i = 0; i < campos.length; i++) {
+        while ( i < campos.length) {
             System.out.println("introduce el valor para el campo "+campos[i]);
             parametros.add(scanner.nextLine());
+            i++;
         }
 
     return parametros;

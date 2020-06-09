@@ -14,18 +14,20 @@ import java.util.Scanner;
 
 public class MotorInsertar {
     public static boolean updateQueriesExecution(String query, ArrayList<String> valores, String operacion) throws SQLException {
+        int i = 0;
         System.out.println("Opcion " + operacion);
         ConnectionFactory connectionFactory = new ConnectionFactory();
         Connection connection = connectionFactory.conectar();
 
         if (connection != null) {
             PreparedStatement insert = connection.prepareStatement(query);
-            for (int i = 0; i < valores.size(); i++) {
+            while ( i < valores.size()) {
                 if(esNumero(valores.get(i))){
                     insert.setInt(i+1, Integer.parseInt(valores.get(i)));
                 }else {
                     insert.setString(i+1, valores.get(i));
                 }
+                 i++;
             }
             insert.executeUpdate();
             insert.close();
