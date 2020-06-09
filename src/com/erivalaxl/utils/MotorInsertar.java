@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class MotorInsertar {
@@ -35,6 +36,7 @@ public class MotorInsertar {
     }
 
     public static void Listar() throws SQLException {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Opcion Listar");
         List<Alumno> alumnos = new ArrayList<>();
         ConnectionFactory connectionFactory = new ConnectionFactory();
@@ -62,6 +64,9 @@ public class MotorInsertar {
             }
         }
         connection.close();
+        System.out.println("Preciona enter para continuar");
+        scanner.nextLine();
+
     }
 
     public static boolean esNumero(String valorAProbar){
