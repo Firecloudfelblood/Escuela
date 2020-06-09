@@ -30,6 +30,7 @@ public class MotorInsertar {
             insert.close();
             connection.close();
         }
+        Listar();
         return true;
     }
 
