@@ -39,7 +39,7 @@ public class AppUtils {
         System.out.println("Dame los campos necesarios para poder realizar la operacion " + operacion);
         for (int i = 0; i < campos.length; i++) {
             System.out.println("introduce el valor para el campo "+campos[i]);
-            parametros.add(scanner.next());
+            parametros.add(scanner.nextLine());
         }
 
     return parametros;
