@@ -17,15 +17,15 @@ public class AppUtils {
         switch(opcionElegida){
             case "1": {
                         updateQueriesExecution("insert into alumnos(nombre, email, edad, genero) values(?, ?, ?, ?);",
-                        pedirValoresQuery("insert", 4), "insert");}break;
+                        pedirValoresQuery("insert", new String[]{"nombre", "email", "edad", "genero"}), "insert");}break;
             case "2": {Listar();}break;
 
             case "3": {
-                        updateQueriesExecution("UPDATE alumnos SET nombre = ?, email = ?, edad = ?, = ? where id = ?;",
-                            pedirValoresQuery("update",5), "update");}break;
+                        updateQueriesExecution("UPDATE alumnos SET nombre = ?, email = ?, edad = ?, genero = ? where id = ?;",
+                            pedirValoresQuery("update", new String[]{"nombre", "email", "edad", "genero", "id"}), "update");}break;
             case "4": {
                         updateQueriesExecution("DELETE FROM alumnos WHERE id=?",
-                            pedirValoresQuery("delete", 1), "delete");}break;
+                            pedirValoresQuery("delete", new String[]{"id"}), "delete");}break;
             case "5": break;
             default: {
                 System.out.println("Valor fuera del rango intenta de nuevo");
@@ -33,12 +33,12 @@ public class AppUtils {
         }
     }
 
-    public static ArrayList<String>  pedirValoresQuery(String operacion, int numeroParametros){
+    public static ArrayList<String>  pedirValoresQuery(String operacion, String[] campos){
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> parametros = new ArrayList<>();
-        System.out.println("Dame los " + numeroParametros + " parametros para poder realizar la operacion " + operacion);
-        for (int i = 0; i < numeroParametros; i++) {
-            System.out.println("introduce el parametro");
+        System.out.println("Dame los campos necesarios para poder realizar la operacion " + operacion);
+        for (int i = 0; i < campos.length; i++) {
+            System.out.println("introduce el valor para el campo "+campos[i]);
             parametros.add(scanner.next());
         }
 
